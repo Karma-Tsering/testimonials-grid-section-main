@@ -77,32 +77,3 @@ img{
     color: hsl(0, 0%, 81%);
 }
 
-@media only screen and (min-width: 600px) {
-   
-   .box{
-       margin: 0;
-   }
-   .container1{
-       grid-area: dan;
-   }
-   .container2{
-       grid-area: jon;
-   }
-   .container5{
-       grid-area: kir;
-   }
-   .container3{
-       grid-area: jean;
-   }
-   .container4{
-   grid-area: pat;
-   }
-   .wrapper{
-       display: grid;
-        height: 100vh;
-       width: 100vw;
-     grid-template-areas: 'dan dan jon kir' 'jean pat pat kir';
-       /* grid-gap: 15px; */
-       /* padding: 100px; */
-   }
-}
