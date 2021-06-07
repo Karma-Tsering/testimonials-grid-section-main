@@ -5,22 +5,26 @@
 }
 body{
     font: 500 13px Barlow Semi Condensed;
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    width: 100vw;
 }
 
 .wrapper{
     width: 100vw;
     min-width: 341px;
-    padding:50px 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
+    padding:30px 50px;
+    display:grid;
+    grid-gap: 20px;
+grid-template-columns: repeat(5,1fr);
+grid-template-rows: auto auto;
     background-color: hsl(210, 46%, 95%);
 
 }
 .box{
     padding:24px;
-    margin: 0 35px 15px 35px;
+    /* margin: 0 35px 15px 35px; */
     border-radius: 8px;
     display: flex;
     justify-content: space-around;
@@ -28,27 +32,32 @@ body{
 }
 .container1{
     background-color: hsl(263, 55%, 52%);
-    
+    grid-column: 1/4;
+    position: relative;
+    z-index: 1;
 }
 .container2{
     background-color:hsl(217, 19%, 35%);
-   
+   grid-column: 4/5;
 }
 .container3{
     background-color:hsl(0, 0%, 100%) ;
+    grid-row: 2/3;
 }
 .container4{
     background-color:hsl(219, 29%, 14%);
+    grid-area: 2/2/3/5;
 }
 .container5{
     background-color:hsl(0, 0%, 100%);
-    
+    grid-area: 1/5/3/6;
 }
 
 .header{
     height: 50px;
     border: transparent 3px solid;
     margin-bottom: 10px;
+    z-index: 10;
 }
 img{
     float:left;
@@ -56,6 +65,16 @@ img{
     border:rgb(207, 207, 207) 1px solid;
     border-radius: 50%;
     margin-right: 17px;
+}
+
+.img img{
+    border-radius: 0;
+    border:none;
+    position: absolute;
+    top: 0;
+    right:10%;
+    height: 40%;
+    z-index: 2;
 }
 .name{
     color: hsl(0, 0%, 81%);
@@ -71,38 +90,43 @@ img{
     font:600 20px Barlow Semi Condensed;
     color: hsl(0, 0%, 81%);
     margin-bottom: 10px;
+    z-index: 10;
 }
 .detail{
     opacity: .7;
     color: hsl(0, 0%, 81%);
 }
+/* for hight end and mid range phones */
+@media screen and (max-width:575px) {
+    
+    .wrapper{
+        display: flex;
+        flex-direction: column;
+        padding: 28px;
+    }
+}
 
-@media only screen and (min-width: 600px) {
-   
-   .box{
-       margin: 0;
-   }
-   .container1{
-       grid-area: dan;
-   }
-   .container2{
-       grid-area: jon;
-   }
-   .container5{
-       grid-area: kir;
-   }
-   .container3{
-       grid-area: jean;
-   }
-   .container4{
-   grid-area: pat;
-   }
-   .wrapper{
-       display: grid;
-        height: 100vh;
-       width: 100vw;
-     grid-template-areas: 'dan dan jon kir' 'jean pat pat kir';
-       /* grid-gap: 15px; */
-       /* padding: 100px; */
-   }
+/* for tab and ipads screen size */
+@media screen and (min-width:576px) and (max-width:1115px)
+{
+    .wrapper{
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        min-width: 930px;
+    }
+    .container1{
+    grid-column:1/4;
+}
+.container2{
+   grid-column: 4/5;
+}
+.container3{
+    grid-row: 2/3;
+}
+.container4{
+    grid-area: 2/2/3/5;
+}
+.container5{
+    grid-area: 3/1/4/5;
+}
 }
